@@ -17,8 +17,7 @@ class JTranslate{
 				input = this.getTranslateInput(text);
 				debug('Actual translation input is : ' + input);
 				if(input && input.length > 0){
-					googleTranslate.detectLanguage(input, (err, detection)=>{
-						let language = detection.language;
+					this.guessLanguage(input).then(language=>{
 						if(language === LANGUAGE_ENGLISH){
 							this.translateToJap(input).then(response => {
 								if(response && response != "undefined") resolve(this.formatResponse(input, response));
@@ -32,12 +31,46 @@ class JTranslate{
 						} else {
 							resolve(this.formatResponse(input, "Unknown language."));
 						}
+
 					});
+					
 				} else {
 					//Invalid syntax
-					resolve("Please ensure your message comes after the word 'translate'!");
+					reject("Please ensure your message comes after the word 'translate'!");
 				}
 			}
+		});
+	}
+
+	/**
+	 * Guess the input language
+	 * @param input - the text to be translated
+	 * Output follows google standard
+	 * Japanese - ja
+	 * English - en
+	 */
+	guessLanguage(input){
+		return new Promise((resolve, reject) => {
+			if(input.match(/[\u3000-\u303f\u3040-\u309f\u30a0-\u30ff\uff00-\uff9f\u4e00-\u9faf\u3400-\u4dbf]/)){
+				resolve(LANGUAGE_JAPANESE);
+			} else {
+				resolve(LANGUAGE_ENGLISH);
+			}
+		});
+	}
+
+	/**
+	 * Use google translate to guess langauge
+	 */
+	googleGuessLanguage(input){
+		return new Promise((resolve, reject)=>{
+			googleTranslate.detectLanguage(input, (err, detection)=>{
+				if(err !=null){
+					reject(err);
+				} else {
+					resolve(detection.language);
+				}
+			});
 		});
 	}
 
