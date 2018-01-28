@@ -4,7 +4,7 @@ const JTranslate = require('./translate');
 
 const scheduleUrl = "https://goo.gl/3aNohw";
 
-const bot = new Telegraf(process.env.BOT_TOKEN, {username: 'JSensei'});
+const bot = new Telegraf(process.env.BOT_TOKEN, {username: 'jsenseibot'});
 
 //start debugging
 const name = 'jsensei';
