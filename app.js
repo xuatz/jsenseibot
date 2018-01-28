@@ -13,8 +13,8 @@ bot.start((ctx) => {
 	return ctx.reply('Welcome!')
 });
 
-//bot hears "translate" or "Translate"
-bot.hears(/\b([Tt]ranslate)\b/, (ctx) => {
+//bot hears "translate-" or "Translate-"
+bot.hears(/\b([Tt]ranslate)\b-/, (ctx) => {
 	var message = ctx.message.text;
 	debug("====================================");
 	debug("Received message '" + message + "'");

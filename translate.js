@@ -1,7 +1,7 @@
 const debug = require('debug')("jsensei");
 const googleTranslate = require('google-translate')(process.env.GTRANSLATE_KEY);
 
-const KEYWORD_TRANSLATE = "translate";
+const KEYWORD_TRANSLATE = "translate-";
 const LANGUAGE_ENGLISH = "en";
 const LANGUAGE_JAPANESE = "ja";
 
