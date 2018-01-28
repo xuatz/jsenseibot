@@ -2,6 +2,8 @@ const debug = require('debug')("jsensei");
 const Telegraf = require('telegraf')
 const JTranslate = require('./translate');
 
+const scheduleUrl = "https://goo.gl/3aNohw";
+
 const bot = new Telegraf(process.env.BOT_TOKEN, {username: 'JSensei'});
 
 //start debugging
@@ -24,9 +26,11 @@ bot.hears(/\b([Tt]ranslate)\b-/, (ctx) => {
 		debug("====================================");
 	});
 });
+bot.hears('hi', (ctx) => ctx.reply("I'm awake, i'm awake!"));
 
-// bot.command('help', (ctx) => ctx.reply('Try send a sticker!'))
-// bot.hears('hi', (ctx) => ctx.reply('Hey Audrey! Looking pretty today!'))
+//Return image of current schedule
+bot.command('getschedule', (ctx) => ctx.reply(scheduleUrl));
+
 // bot.hears(/buy/i, (ctx) => ctx.reply('Buy-buy!'))
 // bot.on('sticker', (ctx) => ctx.reply('👍'))
 
