@@ -29,7 +29,7 @@ bot.hears(/\b([Tt]ranslate)\b-/, (ctx) => {
 bot.hears('hi', (ctx) => ctx.reply("I'm awake, i'm awake!"));
 
 //Return image of current schedule
-bot.command('getschedule', (ctx) => ctx.reply(scheduleUrl));
+bot.command('getschedule', (ctx) => ctx.replyWithPhoto(scheduleUrl));
 
 // bot.hears(/buy/i, (ctx) => ctx.reply('Buy-buy!'))
 // bot.on('sticker', (ctx) => ctx.reply('👍'))
