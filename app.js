@@ -3,6 +3,8 @@ const Telegraf = require('telegraf')
 const JTranslate = require('./translate');
 
 const scheduleUrl = "https://goo.gl/3aNohw";
+const katakanaUrl = "https://goo.gl/3QK9TG";
+const hiraganaUrl = "https://goo.gl/Q3kQ5p";
 
 const bot = new Telegraf(process.env.BOT_TOKEN, {username: 'jsenseibot'});
 
