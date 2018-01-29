@@ -3,8 +3,6 @@ const Telegraf = require('telegraf')
 const JTranslate = require('./translate');
 
 const scheduleUrl = "https://goo.gl/3aNohw";
-const katakanaUrl = "https://goo.gl/3QK9TG";
-const hiraganaUrl = "https://goo.gl/Q3kQ5p";
 
 const bot = new Telegraf(process.env.BOT_TOKEN, {username: 'jsenseibot'});
 
@@ -32,9 +30,6 @@ bot.hears('hi', (ctx) => ctx.reply("I'm awake, i'm awake!"));
 
 //Return image of current schedule
 bot.command('getschedule', (ctx) => ctx.replyWithPhoto(scheduleUrl));
-bot.command('showkatakana', (ctx)=> ctx.replyWithPhoto(katakanaUrl));
-bot.command('showhiragana', (ctx)=> ctx.replyWithPhoto(hiraganaUrl));
-
 
 // bot.hears(/buy/i, (ctx) => ctx.reply('Buy-buy!'))
 // bot.on('sticker', (ctx) => ctx.reply('👍'))
