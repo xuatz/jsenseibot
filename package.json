@@ -5,7 +5,9 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "test": "make test"
+    "test": "make test",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "keywords": [
     "npm"
@@ -15,6 +17,8 @@
   "dependencies": {
     "debug": "^3.1.0",
     "google-translate": "^2.0.5",
-    "telegraf": "^3.17.5"
-  }
+    "telegraf": "^3.17.5",
+    "snyk": "^1.316.1"
+  },
+  "snyk": true
 }
